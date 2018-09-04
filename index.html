@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
                integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -17,6 +18,20 @@
          <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
                  integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
                  crossorigin=""></script>
+
+				 <!-- Load Esri Leaflet from CDN -->
+		     <script src="https://unpkg.com/esri-leaflet@2.2.3/dist/esri-leaflet.js"
+		     integrity="sha512-YZ6b5bXRVwipfqul5krehD9qlbJzc6KOGXYsDjU9HHXW2gK57xmWl2gU6nAegiErAqFXhygKIsWPKbjLPXVb2g=="
+		     crossorigin=""></script>
+
+
+		   <!-- Load Esri Leaflet Geocoder from CDN -->
+		   <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.css"
+		     integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+		     crossorigin="">
+		   <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.js"
+		     integrity="sha512-zdT4Pc2tIrc6uoYly2Wp8jh6EPEWaveqqD3sT0lf5yei19BC1WulGuh5CesB0ldBKZieKGD7Qyf/G0jdSe016A=="
+		     crossorigin=""></script>
 
 	</head>
 	<body class="is-preload">
@@ -50,31 +65,23 @@
 				 <div id="map" class="image fit"></div>
 				<div class="inner">
 					<header>
-						<h2>Lorem ipsum<br />
-						dolor sit amet</h2>
+						<h2>On vous livre où ?</h2>
 					</header>
-					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
-				</div>
-			</article>
-
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Mollis posuere<br />
-						lectus lacus</h2>
-					</header>
-					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
+					<form method="post" action="#">
+						<div class="row">
+							<div class="col-12 col-12-mobile">
+								<input class="text" type="text" name="address" id="address" placeholder="Votre adresse" autocomplete="off" />
+							</div>
+						</div>
+						<div><p id="answer"></p></div>
+					</form>
 				</div>
 			</article>
 
 		<!-- Portfolio -->
 			<article class="container box style2">
 				<header>
-					<h2>Magnis parturient</h2>
-					<p>Justo phasellus et aenean dignissim<br />
-					placerat cubilia purus lectus.</p>
+					<h2>Bon, du coup qu'est-ce qu'on vous amène ?</h2>
 				</header>
 				<div class="inner gallery">
 					<div class="row gtr-0">
@@ -95,189 +102,21 @@
 		<!-- Contact -->
 			<article class="container box style3">
 				<header>
-					<h2>Nisl sed ultricies</h2>
-					<p>Diam dignissim lectus eu ornare volutpat orci.</p>
+					<h2>On y est presque…</h2>
 				</header>
 				<form method="post" action="#">
 					<div class="row gtr-50">
-						<div class="col-6 col-12-mobile"><input type="text" class="text" name="name" placeholder="Name" /></div>
-						<div class="col-6 col-12-mobile"><input type="text" class="text" name="email" placeholder="Email" /></div>
-						<div class="col-12">
-							<textarea name="message" placeholder="Message"></textarea>
-						</div>
+						<div class="col-6 col-12-mobile"><input type="text" class="text" name="name" placeholder="Nom" /></div>
+						<div class="col-6 col-12-mobile"><input type="text" class="text" name="phone" placeholder="Téléphone" /></div>
 						<div class="col-12">
 							<ul class="actions">
-								<li><input type="submit" value="Send Message" /></li>
+								<li><input type="submit" value="C'est parti !" /></li>
 							</ul>
 						</div>
 					</div>
 				</form>
 			</article>
 
-		<!-- Generic -->
-		<!--
-			<article class="container box style3">
-				<header>
-					<h2>Generic Box</h2>
-					<p>Just a generic box. Nothing to see here.</p>
-				</header>
-				<section>
-					<header>
-						<h3>Paragraph</h3>
-						<p>This is a subtitle</p>
-					</header>
-					<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada <em>emphasized</em> ac turpis egestas. Morbi
-					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.</p>
-				</section>
-				<section>
-					<header>
-						<h3>Blockquote</h3>
-					</header>
-					<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-					tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
-				</section>
-				<section>
-					<header>
-						<h3>Divider</h3>
-					</header>
-					<p>Donec consectetur <a href="#">vestibulum dolor et pulvinar</a>. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-					<hr />
-					<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-				</section>
-				<section>
-					<header>
-						<h3>Unordered List</h3>
-					</header>
-					<ul>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					</ul>
-				</section>
-				<section>
-					<header>
-						<h3>Ordered List</h3>
-					</header>
-					<ol>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					</ol>
-				</section>
-				<section>
-					<header>
-						<h3>Table</h3>
-					</header>
-					<div class="table-wrapper">
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>45815</td>
-									<td>Something</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>24524</td>
-									<td>Nothing</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>19.99</td>
-								</tr>
-								<tr>
-									<td>45815</td>
-									<td>Something</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>24524</td>
-									<td>Nothing</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>19.99</td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="3"></td>
-									<td>100.00</td>
-								</tr>
-							</tfoot>
-						</table>
-					</div>
-				</section>
-				<section>
-					<header>
-						<h3>Form</h3>
-					</header>
-					<form method="post" action="#">
-						<div class="row">
-							<div class="col-6 col-12-mobile">
-								<input class="text" type="text" name="name" id="name" value="" placeholder="John Doe" />
-							</div>
-							<div class="col-6 col-12-mobile">
-								<input class="text" type="text" name="email" id="email" value="" placeholder="johndoe@domain.tld" />
-							</div>
-							<div class="col-12">
-								<select name="department" id="department">
-									<option value="">Choose a department</option>
-									<option value="1">Manufacturing</option>
-									<option value="2">Administration</option>
-									<option value="3">Support</option>
-								</select>
-							</div>
-							<div class="col-12">
-								<input class="text" type="text" name="subject" id="subject" value="" placeholder="Enter your subject" />
-							</div>
-							<div class="col-12">
-								<textarea name="message" id="message" placeholder="Enter your message"></textarea>
-							</div>
-							<div class="col-12">
-								<ul class="actions">
-									<li><input type="submit" value="Submit" /></li>
-									<li><input type="reset" class="style3" value="Clear Form" /></li>
-								</ul>
-							</div>
-						</div>
-					</form>
-				</section>
-			</article>
-		-->
-
-		<section id="footer">
-			<ul class="icons">
-				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-				<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
-				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-				<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-			</ul>
-			<div class="copyright">
-				<ul class="menu">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-		</section>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -288,6 +127,85 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-            <script>var mymap = L.map('map').setView([48.0833, -1.6833], 13);</script>
+      <script>
+			var map = L.map('map').setView([48.0833, -1.6833], 13);
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+				maxZoom: 18,
+				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+					'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+				id: 'mapbox.streets'
+			}).addTo(map);
+
+			var results = L.layerGroup().addTo(map);
+
+			addressForm = document.getElementById('address');
+			let radius = 5500;
+			let cityCenter = L.latLng(48.109905, -1.679177);
+			let boundaries = L.circle(cityCenter, radius, {opacity: 0.4});
+
+			let database = {};
+
+			address.oninput = function(e) {
+				if (e.target.value.length > 10) {
+					fetch(buildUrl("https://api-adresse.data.gouv.fr/search/", {
+						q: e.target.value,
+						lat: cityCenter.lat,
+						lon: cityCenter.lng
+					}))
+					.then(response => response.json())
+					.then(data => {
+						if (data.features.length > 0) {
+							results.clearLayers();
+							let geolocation = data.features[0];
+							let coordinates = geolocation.geometry.coordinates;
+							let latlng = L.latLng(coordinates[1], coordinates[0]);
+							results.addLayer(L.marker(latlng));
+							map.setView(latlng, 13);
+
+							let distance = latlng.distanceTo(cityCenter);
+							var bounds = L.latLngBounds([cityCenter, latlng]);
+							map.fitBounds(bounds);
+							if (distance >= radius) {
+								boundaries.addTo(map);
+								document.getElementById('answer').innerHTML = "Un peu loin pour nous… Désolé !";
+							} else {
+								boundaries.remove();
+								database.address = geolocation.properties.label;
+								document.getElementById('answer').innerHTML = `${database.address}? OK !`;
+							}
+						}
+					})
+					.catch(error => console.log(error))
+				}
+			}
+
+			/*
+		  searchControl.on('results', function(data){
+		    results.clearLayers();
+		    for (var i = data.results.length - 1; i >= 0; i--) {
+		      results.addLayer(L.marker(data.results[i].latlng));
+		    }
+		  });
+			*/
+
+			function buildUrl(url, parameters) {
+			    let qs = "";
+			    for (const key in parameters) {
+			        if (parameters.hasOwnProperty(key)) {
+			            const value = parameters[key];
+			            qs +=
+			                encodeURIComponent(key) + "=" + encodeURIComponent(value) + "&";
+			        }
+			    }
+			    if (qs.length > 0) {
+			        qs = qs.substring(0, qs.length - 1); //chop off last "&"
+			        url = url + "?" + qs;
+			    }
+
+			    return url;
+			}
+
+			</script>
 	</body>
 </html>
